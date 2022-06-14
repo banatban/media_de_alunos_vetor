@@ -1,28 +1,33 @@
-public class media_alunos_vet{
-    public static void main(String[] args){
+import java.util.Scanner;
+public class media_alunos_vet2 {
+    public static void main (String[] args) {
+        //Uso do Scanner para entrada de dados
+        Scanner scan = new Scanner(System.in);
+        //Declara a Array Q e atribui a ela o tamanho 6
+        double Q[] = new double[6];
         //Declara a variável i
         int i;
-        //Declara a Array Q, e  coloca os numeros de salas q nesse caso sao 6
-        double Q[] = new double[6]; 
-        //Declara os valores de cada vetor
-        Q[0] = 35;
-        Q[1] = 4;
-        Q[2] = 22;
-        Q[3] = 20;
-        Q[4] = 36; 
-        Q[5] = 30;
-        //calculara a média
+
+        //Uso da estrutura de repetição For
+        for (i=0; i<6; i++) {
+            //Pede para o usuário inserir a quantia de alunos por sala
+            System.out.printf("Informe %2da. quantia de alunos: ", (i+1));
+            //Entrada de dados de cada Array
+            Q[i] = scan.nextInt();
+        }
+        //Operação que realiza o cáculo da média
         double media = ((Q[0] + Q[1] + Q[2] + Q[3] + Q[4] + Q[5]) / 6);
-        //mostra ao usuário a média de alunos da sala
-        System.out.println("A media de alunos é: " + media);
+        //Informa ao usuário qual a média aritmética dos alunos
+        System.out.println("A media de alunos por sala e: " + media);
         
         //Uso da estrutura de repetição For
-        for (i=0; i<6; i++){
-            //Condicional If para determinar informações pertinentes
-            if (Q[i] > media)
-            // mostra a media das salas que estao acima da media geral das salas
-            System.out.println("A sala " + (i+1) + " tem " + Q[i] + " alunos e tem mais alunos do que a media");
-        }
+        for (i=0; i<6; i++) {
+            //Condicional que determina e informa se a sala tem a quantia de alunos acima da média
+            if (Q[i] < media)
+            System.out.printf("A sala "+ (i + 1) +" tem " + Q[i] + " alunos, e tem a quantia de alunos abaixo da media\n");
+            else
+            System.out.printf("A sala "+ (i + 1) +" tem " + Q[i] + " alunos, e tem a quantia de alunos acima da media\n");
+          }
 
     }
 }
